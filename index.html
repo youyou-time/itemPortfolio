@@ -208,7 +208,7 @@
 				justify-content: flex-start;
 			}
 
-			.image-card {
+			.image-card-pc {
 				flex: 0 0 calc(25% - 12px);
 				min-width: 180px;
 				background: #ffffff;
@@ -220,12 +220,12 @@
 				cursor: pointer;
 			}
 
-			.image-card:hover {
+			.image-card-pc:hover {
 				transform: translateY(-3px);
 				box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 			}
 
-			.image-card img {
+			.image-card-pc img {
 				width: 100%;
 				height: 150px;
 				object-fit: cover;
@@ -233,7 +233,7 @@
 				transition: opacity 0.2s;
 			}
 
-			.image-card:hover img {
+			.image-card-pc:hover img {
 				opacity: 0.92;
 			}
 
@@ -424,6 +424,56 @@
 					font-size: 30px;
 				}
 			}
+
+			/* 移动端独有样式，不与PC冲突 */
+			.screenshots-gallery-mobile {
+				margin: 32px 0 20px;
+				background: #fefefe;
+				padding: 8px 0;
+				border-top: 1px solid #e9ecef;
+			}
+
+			.image-grid-mobile {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+				gap: 14px;
+				margin-top: 12px;
+			}
+			
+			.image-card-mobile {
+				cursor: pointer;
+				border-radius: 12px;
+				overflow: hidden;
+				background: #f8f9fa;
+				transition: transform 0.2s, box-shadow 0.2s;
+				box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+			}
+
+			.image-card-mobile:hover {
+				transform: translateY(-4px);
+				box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+			}
+
+			.image-card-mobile img {
+				width: 100%;
+				aspect-ratio: 9 / 16;
+				/* 移动端竖图比例，可根据实际截图调整 */
+				object-fit: cover;
+				display: block;
+			}
+
+			/* 响应式布局 */
+			@media (min-width: 500px) {
+				.image-grid-mobile {
+					grid-template-columns: repeat(3, 1fr);
+				}
+			}
+
+			@media (min-width: 768px) {
+				.image-grid-mobile {
+					grid-template-columns: repeat(4, 1fr);
+				}
+			}
 		</style>
 	</head>
 	<body>
@@ -503,60 +553,56 @@
 				<!-- 界面截图展示区 - 支持点击放大功能 -->
 				<div class="screenshots-gallery">
 					<div class="gallery-title">📸 系统界面预览（点击图片可放大查看）</div>
-					<div class="desc-text" style="margin-bottom: 10px; color: #4a627a;">以下为体检系统后台核心模块界面示意，点击任意图片可全屏预览。</div>
+					<div class="desc-text" style="margin-bottom: 10px; color: #4a627a;">以下为体检系统后台部分界面示意，点击任意图片可全屏预览。</div>
 					<div class="image-grid" id="imageGrid">
-						<div class="image-card" data-img-src="./image/1-1.png" data-img-caption="登录页面">
+						<div class="image-card-pc image-card" data-img-src="./image/1-1.png" data-img-caption="登录页面">
 							<img src="./image/1-1.png" alt="登录页面" loading="lazy">
 							<div class="image-caption">登录页面</div>
 						</div>
-						<div class="image-card" data-img-src="./image/1-2.png" data-img-caption="单位登记">
+						<div class="image-card-pc image-card" data-img-src="./image/1-2.png" data-img-caption="单位登记">
 							<img src="./image/1-2.png" alt="单位登记" loading="lazy">
 							<div class="image-caption">单位登记</div>
 						</div>
-						<div class="image-card" data-img-src="./image/1-3.png" data-img-caption="预约登记">
+						<div class="image-card-pc image-card" data-img-src="./image/1-3.png" data-img-caption="预约登记">
 							<img src="./image/1-3.png" alt="预约登记" loading="lazy">
 							<div class="image-caption">预约登记</div>
 						</div>
-						<div class="image-card" data-img-src="./image/1-4.png" data-img-caption="工作量统计">
+						<div class="image-card-pc image-card" data-img-src="./image/1-4.png" data-img-caption="工作量统计">
 							<img src="./image/1-4.png" alt="工作量统计" loading="lazy">
 							<div class="image-caption">工作量统计</div>
 						</div>
-						<div class="image-card" data-img-src="./image/1-5.png" data-img-caption="费用统计">
+						<div class="image-card-pc image-card" data-img-src="./image/1-5.png" data-img-caption="费用统计">
 							<img src="./image/1-5.png" alt="费用统计" loading="lazy">
 							<div class="image-caption">费用统计</div>
 						</div>
-						<div class="image-card" data-img-src="./image/1-6.png" data-img-caption="字典管理">
+						<div class="image-card-pc image-card" data-img-src="./image/1-6.png" data-img-caption="字典管理">
 							<img src="./image/1-6.png" alt="字典管理" loading="lazy">
 							<div class="image-caption">字典管理</div>
 						</div>
-						<div class="image-card" data-img-src="./image/1-7.png" data-img-caption="菜单维护">
+						<div class="image-card-pc image-card" data-img-src="./image/1-7.png" data-img-caption="菜单维护">
 							<img src="./image/1-7.png" alt="菜单维护" loading="lazy">
 							<div class="image-caption">菜单维护</div>
 						</div>
-						<div class="image-card" data-img-src="./image/1-8.png" data-img-caption="明细项目">
+						<div class="image-card-pc image-card" data-img-src="./image/1-8.png" data-img-caption="明细项目">
 							<img src="./image/1-8.png" alt="明细项目" loading="lazy">
 							<div class="image-caption">明细项目</div>
 						</div>
-						<div class="image-card" data-img-src="./image/1-9.png" data-img-caption="体检套餐">
+						<div class="image-card-pc image-card" data-img-src="./image/1-9.png" data-img-caption="体检套餐">
 							<img src="./image/1-9.png" alt="体检套餐" loading="lazy">
 							<div class="image-caption">体检套餐</div>
 						</div>
-						<div class="image-card" data-img-src="./image/1-10.png" data-img-caption="诊断管理">
+						<div class="image-card-pc image-card" data-img-src="./image/1-10.png" data-img-caption="诊断管理">
 							<img src="./image/1-10.png" alt="诊断管理" loading="lazy">
 							<div class="image-caption">诊断管理</div>
 						</div>
-						<div class="image-card" data-img-src="./image/1-11.png" data-img-caption="职业病检查">
+						<div class="image-card-pc image-card" data-img-src="./image/1-11.png" data-img-caption="职业病检查">
 							<img src="./image/1-11.png" alt="职业病检查" loading="lazy">
 							<div class="image-caption">职业病检查</div>
 						</div>
-						<div class="image-card" data-img-src="./image/1-12.png" data-img-caption="AI问询">
-							<img src="./image/1-11.png" alt="AI问询" loading="lazy">
+						<div class="image-card-pc image-card" data-img-src="./image/1-12.png" data-img-caption="AI问询">
+							<img src="./image/1-12.png" alt="AI问询" loading="lazy">
 							<div class="image-caption">AI问询</div>
 						</div>
-					</div>
-					<div class="desc-text"
-						style="font-size: 13px; background: #f1f6f9; padding: 8px 12px; border-left: 3px solid #2c7da0; margin-top: 12px;">
-						※ 以上为系统核心界面预览（预约排期、医生诊台、字典维护、权限配置、登记收费等12个模块），实际运行界面已在高尚体检中心落地。点击任意图片可查看高清大图。
 					</div>
 				</div>
 
@@ -575,11 +621,125 @@
 						系统整体采用模块化设计，字典数据驱动前端表单联动，权限控制支持角色级细粒度访问。通过前端工程化手段，实现构建效率提升30%以上。体检登记模块与折扣引擎复杂业务场景的稳定支撑，彻底杜绝了浮点数计算风险，目前系统已在高尚体检中心稳定运行超过一年。
 					</div>
 				</div>
+			</div>
+			<hr />
+			<hr style="margin-bottom: 32px;" />
 
-				<!-- 专业总结语 -->
-				<hr />
-				<div style="text-align: center; font-style: italic; color: #3c6e71; padding: 8px;">
-					“从用户体验到系统健壮性，打造高效、可靠的体检管理数字化平台”
+			<div class="project-section">
+				<div class="project-header">
+					<span class="project-name">项目二：体检系统管理移动端</span>
+					<span class="project-date">项目时间：2024.05 - 2025.12</span>
+				</div>
+
+				<div class="info-card">
+					<div class="card-title">项目概述</div>
+					<div class="desc-text">
+						这是一个基于 <strong>Vue3 + uni-app + TypeScript + uView UI</strong> 构建的移动端体检系统管理后台（删减版）
+						，旨在为体检中心管理人员提供便捷的移动化办公入口。系统支持套餐查看、预约查询等核心数据管理功能，
+						并根据登录人员的角色与权限动态展示对应的功能入口（如<strong>OA</strong>审批、财务报表等），
+						实现“千人千面”的权限化菜单呈现。项目采用<strong>H5</strong>打包方式发布，管理人员可通过手机浏览器随时随地进行业务处理。
+					</div>
+				</div>
+
+				<div class="grid-2col">
+					<div class="grid-item">
+						<strong>👥 人员分布</strong>
+						<div>后端开发：2人</div>
+						<div>前端开发：1人 <span style="color:#1e6f5c;">（独立负责）</span></div>
+					</div>
+					<div class="grid-item">
+						<strong>🎯 我的角色</strong>
+						<div>前端核心开发 / 框架搭建 / 独立开发 / UI完善</div>
+					</div>
+				</div>
+
+				<div class="info-card">
+					<div class="card-title">我的责任</div>
+					<ul class="list-styled">
+						<li><strong>项目基础建设：</strong>独立完成项目技术选型与框架搭建，从零构建工程结构并完成H5打包发布配置，确保移动端管理后台的稳定运行。</li>
+						<li><strong>界面与交互实现：</strong>自己构思UI进行页面开发，并在基础稿之上进行视觉美化与交互优化，提升移动端管理后台的操作体验。</li>
+						<li>
+							<strong>登录与权限体系：</strong>设计并实现从用户登录鉴权到动态路由权限控制的完整方案，确保不同角色（管理员、财务、审批人员等）登录后只能访问对应权限的功能入口（OA审批、财务报表等）。
+						</li>
+						<li><strong>业务功能开发：</strong>完成套餐查看、预约查询、表单填写等核心管理功能的开发，并与后端紧密对接接口，保障数据交互的准确性。</li>
+						<li><strong>钉钉集成：</strong>对接钉钉开放平台，实现OA审批流程的推送与同步，打通移动端管理后台与企业内部办公流程。</li>
+						<li><strong>打包与发布：</strong>负责将项目打包为H5版本并完成发布部署，支持通过移动端浏览器直接访问使用。</li>
+					</ul>
+				</div>
+
+				<div class="info-card">
+					<div class="card-title">项目业绩</div>
+					<div class="desc-text">
+						<strong>📈 项目收益</strong><br>
+						作为面向体检中心内部人员（管理员、财务、审批人员等）的移动化管理工具，项目成功打破了传统PC后台的地域限制。通过手机浏览器即可随时处理套餐查看、预约查询及OA审批等日常事务，有效提升了外出、巡检等场景下的业务响应速度与内部运转效率。
+					</div>
+					<div class="desc-text" style="margin-top: 16px;">
+						<strong>⚙️ 我的贡献</strong>
+					</div>
+					<ul class="list-styled">
+						<li><strong>项目从零搭建与交付：</strong>作为前端唯一负责人，独立完成技术选型、框架搭建、全部功能模块开发及H5打包发布，确保内部管理人员可即开即用。</li>
+						<li><strong>细粒度权限管控：</strong>设计并实现基于登录身份的动态权限控制方案，不同角色（管理员、财务、审批人）登录后展示差异化功能入口（如OA审批、财务报表），保障数据访问安全。
+						</li>
+						<li><strong>钉钉OA审批集成：</strong>独立对接钉钉开放平台，实现审批推送与同步，处理多分支条件判断及状态流转逻辑，确保审批链路的准确性与实时性。</li>
+						<li><strong>动态表单能力：</strong>针对不同业务场景下审批表单字段差异大的问题，实现表单配置化渲染与数据绑定，使界面能根据后端返回结构灵活呈现，无需重复开发。</li>
+						<li><strong>界面体验优化：</strong>在UI稿基础上进行视觉美化与交互打磨，使移动端管理后台在操作便捷性与视觉效果上更适配管理人员的使用习惯。</li>
+					</ul>
+					<div class="achievement-box"
+						style="margin-top: 20px; background: #f4f9fe; padding: 18px 24px; border: 1px solid #d9e4ec;">
+						<strong>🌟 我的收获</strong>
+						<ul class="list-styled" style="margin-top: 10px;">
+							<li><strong>独立攻坚能力持续强化：</strong>作为唯一前端开发，再次经历从零到完整交付的全过程，对技术选型、工程搭建、排错调试、打包发布各环节形成了更深层的掌控力。</li>
+							<li><strong>复杂审批流程的抽象与处理：</strong>在对接钉钉OA审批过程中，深入理解多分支审批流程的设计模式，掌握了将复杂业务流转抽象为清晰代码逻辑的方法论。</li>
+							<li><strong>动态表单设计思维：</strong>通过实现动态表单的配置化渲染，学会将“变”与“不变”分离的设计思想，提升了高可配置业务场景下的架构能力。</li>
+							<li><strong>协作与问题排查：</strong>在与后端协同制定数据口径、排查业务逻辑问题的过程中，显著提升了跨角色沟通与系统联调的效率。</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- 界面截图展示区 - 支持点击放大功能 -->
+				<div class="screenshots-gallery-mobile">
+					<div class="gallery-title-mobile">📸 系统界面预览（点击图片可放大查看）</div>
+					<div class="desc-text-mobile" style="margin-bottom: 10px; color: #4a627a;">以下为移动端管理后台部分界面示意，点击任意图片可全屏预览。
+					</div>
+					<div class="image-grid-mobile" id="imageGridMobile">
+						<div class="image-card-mobile image-card" data-img-src="./image/2-1.png" data-img-caption="登录页面">
+							<img src="./image/2-1.png" alt="登录页面" loading="lazy">
+							<div class="image-caption">登录页面</div>
+						</div>
+						<div class="image-card-mobile image-card" data-img-src="./image/2-2.png" data-img-caption="工作台">
+							<img src="./image/2-2.png" alt="工作台" loading="lazy">
+							<div class="image-caption">工作台</div>
+						</div>
+						<div class="image-card-mobile image-card" data-img-src="./image/2-3.png" data-img-caption="个人中心">
+							<img src="./image/2-3.png" alt="个人中心" loading="lazy">
+							<div class="image-caption">个人中心</div>
+						</div>
+						<div class="image-card-mobile image-card" data-img-src="./image/2-4.png" data-img-caption="CRM管理">
+							<img src="./image/2-4.png" alt="CRM管理" loading="lazy">
+							<div class="image-caption">CRM管理</div>
+						</div>
+						<div class="image-card-mobile image-card" data-img-src="./image/2-5.png" data-img-caption="OA发起">
+							<img src="./image/2-5.png" alt="OA发起" loading="lazy">
+							<div class="image-caption">OA发起</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- 核心模块补充 -->
+				<div class="info-card">
+				    <div class="card-title">核心业务模块与技术亮点</div>
+				    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px;">
+				        <span class="badge">Vue3 组合式API</span>
+				        <span class="badge">uni-app 跨端开发</span>
+				        <span class="badge">TypeScript 严格模式</span>
+				        <span class="badge">动态权限控制</span>
+				        <span class="badge">钉钉开放平台集成</span>
+				        <span class="badge">动态表单配置化</span>
+				        <span class="badge">H5 打包发布</span>
+				    </div>
+				    <div class="desc-text">
+				        系统基于 Vue3 + uni-app + TypeScript 构建，根据登录账号权限动态控制内置应用呈现。独立对接钉钉开放平台，完成 OA 审批多分支流程的推送与同步。针对审批表单字段差异大的痛点，设计动态表单配置化渲染方案，实现“变”与“不变”分离，大幅降低重复开发成本。作为前端唯一负责人，从零完成技术选型、框架搭建、全部功能开发及 H5 打包发布，目前系统已在高尚体检中心稳定运行，有效提升了管理人员外出、巡检等场景下的业务响应效率。
+				    </div>
 				</div>
 			</div>
 			<footer>
